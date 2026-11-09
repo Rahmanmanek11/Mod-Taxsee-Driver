@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mod Taxsee Driver Turbo Vip</title>
-<meta name="description" content="Mod Taxsee Driver Turbo Vip: sewa mod pembantu order untuk driver Taxsee Driver / Maxim. Paket Basic dan PRO, harga mulai Rp10.000, bayar QRIS, aktif otomatis.">
+<meta name="description" content="Mod Taxsee Driver Turbo Vip: sewa mod pembantu order untuk driver Taxsee Driver / Maxim. Paket Basic dan PRO, harga mulai Rp15.000, bayar QRIS, aktif otomatis.">
 <meta name="theme-color" content="#0b1220">
 <style>
 :root{
@@ -71,6 +71,7 @@ h2{font-size:clamp(24px,4.5vw,34px);margin:6px 0 10px;letter-spacing:-.3px}
 .tabs button{border:0;background:transparent;color:var(--mu);font:inherit;font-weight:700;padding:9px 18px;border-radius:9px;cursor:pointer}
 .tabs button.on{background:var(--ac);color:#111}
 .plans{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.plans.solo{grid-template-columns:minmax(290px,420px);justify-content:center}
 .plan{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;position:relative}
 .plan.pro{border-color:var(--pro);box-shadow:0 0 0 1px var(--pro) inset}
 .plan .badge{position:absolute;top:16px;right:16px;font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:99px;background:var(--pro);color:#fff}
@@ -199,7 +200,7 @@ code{background:var(--card2);border:1px solid var(--line);padding:1px 6px;border
       <a class="btn g" href="https://wa.me/0895386082201?text=Min%20Saya%20Mau%20Sewa%20Mod%20Taxsee%20Driver%20VIP" target="_blank" rel="noopener">Chat WhatsApp Admin</a>
     </div>
     <div class="stats">
-      <div class="stat"><b>Mulai Rp10.000</b><small>paket harian</small></div>
+      <div class="stat"><b>Mulai Rp15.000</b><small>paket harian</small></div>
       <div class="stat"><b>QRIS</b><small>bayar, kode aktif otomatis</small></div>
       <div class="stat"><b>Motor, Mobil, Bajaj</b><small>pilih sesuai kendaraan</small></div>
       <div class="stat"><b>1 Kode = 1 HP</b><small>aman dan tidak bisa dipakai bersama</small></div>
@@ -398,7 +399,7 @@ code{background:var(--card2);border:1px solid var(--line);padding:1px 6px;border
   <div class="wrap">
     <div class="eyebrow">Paket &amp; Harga</div>
     <h2>Pilih paket sesuai kendaraan dan kebutuhan</h2>
-    <p class="sub">Setiap kendaraan punya paket Basic dan PRO, masing-masing dalam durasi Harian, Mingguan, dan Bulanan. Lisensi Motor hanya mengaktifkan layanan motor, lisensi Mobil hanya layanan mobil, dan lisensi Bajaj hanya layanan bajaj.</p>
+    <p class="sub">Motor hanya tersedia paket PRO. Mobil dan Bajaj punya paket Basic dan PRO. Semua paket tersedia dalam durasi Harian, Mingguan, dan Bulanan. Lisensi Motor hanya mengaktifkan layanan motor, lisensi Mobil hanya layanan mobil, dan lisensi Bajaj hanya layanan bajaj.</p>
 
     <div class="tabs" id="tabs">
       <button class="on" data-v="motor">Motor</button>
@@ -407,7 +408,7 @@ code{background:var(--card2);border:1px solid var(--line);padding:1px 6px;border
     </div>
 
     <div class="plans">
-      <div class="plan">
+      <div class="plan" id="plan-basic">
         <h3>Basic</h3>
         <div class="d">Semua yang dibutuhkan untuk mengambil order otomatis.</div>
         <table class="pr" id="tb-basic"></table>
@@ -607,6 +608,9 @@ code{background:var(--card2);border:1px solid var(--line);padding:1px 6px;border
     fill("tb-basic",P[v].b);fill("tb-pro",P[v].p);
     var bs=document.querySelectorAll("#tabs button");
     for(var i=0;i<bs.length;i++)bs[i].className=bs[i].getAttribute("data-v")===v?"on":"";
+    var pb=document.getElementById("plan-basic"),pl=document.querySelector(".plans");
+    if(v==="motor"){pb.style.display="none";pl.className="plans solo";}
+    else{pb.style.display="";pl.className="plans";}
   }
   var bs=document.querySelectorAll("#tabs button");
   for(var i=0;i<bs.length;i++)bs[i].addEventListener("click",function(){show(this.getAttribute("data-v"));});
